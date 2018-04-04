@@ -4,7 +4,29 @@
 }
 
 .Calculator-input {
+  box-sizing: border-box;
   width: 100%;
   height: 5rem;
   font-size: 3rem;
+}
+
+.Calculator-row {
+  width: 100%;
+  height: 6rem;
+}
+
+.Calculator-button {
+  border: 3px solid lightslategray;
+  width: 25%;
+  height: 100%;
+  box-sizing: border-box;
+  float: left;
+  background: darkslategray;
+  color: white;
+  padding: 1rem;
+  font-size: 2.5rem;
+}
+
+.Calculator-button-large {
+  width: 50%;
 }

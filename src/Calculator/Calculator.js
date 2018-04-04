@@ -55,12 +55,95 @@ class Calculator extends Component {
     });
   }
 
+  insert = (char) => {
+    this.setState({
+      input: this.state.input + char
+    });
+  }
+
+  backspace = () => {
+    const input = this.state.input;
+    this.setState({
+      input: input.substring(0, input.length - 1)
+    });
+  }
+
+  wipe = () => {
+    this.setState({
+      input: ''
+    });
+  }
+
   render() {
     return (
       <div className="Calculator">
         <input className="Calculator-input" onKeyPress={this.handleKeyPress}
           onChange={this.handleChange} value={this.state.input} />
-      </div>
+        <div className="Calculator-row">
+          <div className="Calculator-button Calculator-button-large" onClick={this.wipe}>
+            C
+          </div>
+          <div className="Calculator-button" onClick={this.backspace}>
+            &lt;--
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('/')}>
+            /
+          </div>
+        </div>
+        <div className="Calculator-row">
+          <div className="Calculator-button" onClick={() => this.insert('7')}>
+            7
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('8')}>
+            8
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('9')}>
+            9
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('*')}>
+            *
+          </div>
+        </div>
+        <div className="Calculator-row">
+          <div className="Calculator-button" onClick={() => this.insert('4')}>
+            4
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('5')}>
+            5
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('6')}>
+            6
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('-')}>
+            -
+          </div>
+        </div>
+        <div className="Calculator-row">
+          <div className="Calculator-button" onClick={() => this.insert('1')}>
+            1
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('2')}>
+            2
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('3')}>
+            3
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('+')}>
+            +
+          </div>
+        </div>
+        <div className="Calculator-row">
+          <div className="Calculator-button Calculator-button-large" onClick={() => this.insert('0')}>
+            0
+          </div>
+          <div className="Calculator-button" onClick={() => this.insert('.')}>
+            .
+          </div>
+          <div className="Calculator-button" onClick={this.calculate}>
+            =
+          </div>
+        </div>
+      </div >
     );
   }
 }
