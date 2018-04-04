@@ -11,7 +11,8 @@ class Calculator extends Component {
   }
 
   getAllowedKeys = () => [
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', 'Enter'
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+    '+', '-', '*', '/', 'Enter'
   ]
 
   handleKeyPress = (e) => {
