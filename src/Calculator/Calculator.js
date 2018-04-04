@@ -12,12 +12,40 @@ class Calculator extends Component {
 
   getAllowedKeys = () => [
     '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-    '+', '-', '*', '/', 'Enter'
+    '+', '-', '*', '/', '.', 'Enter'
   ]
+
+  calculate = () => {
+    const input = this.state.input;
+    const nums = input.split(/[+*/-]/);
+    const operators = input.split(/[0-9.]/).filter((el) => el.length !== 0);
+    console.log(operators);
+    let currentNum = Number(nums.splice(0, 1));
+
+    for (let i = 0; i < nums.length; i++) {
+      const nextNum = Number(nums[i]);
+      const operator = operators[i];
+      if (operator === '+') {
+        currentNum += nextNum;
+      } else if (operator === '-') {
+        currentNum -= nextNum;
+      } else if (operator === '*') {
+        currentNum *= nextNum;
+      } else if (operator === '/') {
+        currentNum /= nextNum;
+      }
+    }
+    this.setState({
+      input: String(currentNum)
+    });
+  }
 
   handleKeyPress = (e) => {
     if (!this.getAllowedKeys().includes(e.key)) {
       e.preventDefault();
+    }
+    if (e.key === 'Enter') {
+      this.calculate();
     }
   }
 
@@ -30,7 +58,8 @@ class Calculator extends Component {
   render() {
     return (
       <div className="Calculator">
-        <input className="Calculator-input" onKeyPress={this.handleKeyPress} onChange={this.handleChange} />
+        <input className="Calculator-input" onKeyPress={this.handleKeyPress}
+          onChange={this.handleChange} value={this.state.input} />
       </div>
     );
   }
