@@ -1,0 +1,10 @@
+.Calculator {
+  width: 50%;
+  margin: auto;
+}
+
+.Calculator-input {
+  width: 100%;
+  height: 5rem;
+  font-size: 3rem;
+}
