@@ -8,6 +8,15 @@
   width: 100%;
   height: 5rem;
   font-size: 3rem;
+  border-radius: 0;
+  border: 3px solid lightslategray;
+  padding: 0.25rem;
+  margin: 0;
+}
+
+.Calculator-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .Calculator-row {
