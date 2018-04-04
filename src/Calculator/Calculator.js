@@ -5,8 +5,8 @@ import './Calculator.css';
 class Calculator extends Component {
   render() {
     return (
-      <div class="Calculator">
-        <input class="Calculator-input" />
+      <div className="Calculator">
+        <input className="Calculator-input" />
       </div>
     );
   }
