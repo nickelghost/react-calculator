@@ -1,5 +1,5 @@
 .Calculator {
-  width: 50%;
+  max-width: 768px;
   margin: auto;
 }
 
