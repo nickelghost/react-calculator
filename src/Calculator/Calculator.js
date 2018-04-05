@@ -84,7 +84,7 @@ class Calculator extends Component {
             C
           </div>
           <div className="Calculator-button" onClick={this.backspace}>
-            &lt;--
+            &lt;-
           </div>
           <div className="Calculator-button" onClick={() => this.insert('/')}>
             /
