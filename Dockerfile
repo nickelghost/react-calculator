@@ -1,16 +1,12 @@
-FROM node:10-alpine
+FROM node:12-alpine
 
-RUN mkdir /home/node/calculator
-
-WORKDIR /home/node/calculator
+WORKDIR /app
 
 COPY . .
 
 RUN npm i
 RUN npm run build
+
 RUN npm i -g serve
-RUN chown -R node:node /home/node/calculator
 
-EXPOSE 5000
-
-CMD ["serve", "-n", "-s", "/home/node/calculator/build"]
+CMD ["serve", "-n", "-s", "/app/build"]
