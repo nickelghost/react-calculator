@@ -26,6 +26,7 @@
 
 .Calculator-button {
   border: 3px solid lightslategray;
+  cursor: pointer;
   width: 25%;
   height: 100%;
   box-sizing: border-box;
