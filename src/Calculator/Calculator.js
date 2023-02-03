@@ -92,7 +92,7 @@ class Calculator extends Component {
       <div className="Calculator">
         <input
           className="Calculator-input"
-          onKeyPress={this.handleKeyPress}
+          onKeyDown={this.handleKeyPress}
           onChange={this.handleChange}
           value={this.state.input}
         />
