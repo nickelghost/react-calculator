@@ -1,18 +1,17 @@
-FROM node:12-alpine
+FROM node:14-alpine as builder
 
-WORKDIR /app
+WORKDIR /usr/local/src/calculator
 
 COPY . .
 
-RUN npm i
-RUN npm run build
+RUN npm i && npm run build
 
-FROM node:12-alpine
+FROM node:14-alpine
 
-WORKDIR /app
+WORKDIR /var/www/html
 
 RUN npm i -g serve
 
-COPY --from=0 /app/build .
+COPY --from=builder /usr/local/src/calculator/build .
 
-CMD ["serve", "-n", "-s", "/app"]
+CMD ["serve", "-n", "-s", "/var/www/html"]
